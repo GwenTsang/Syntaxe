@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{forest}
+
+\begin{document}
+
+\textbf{Représentation de la phrase "Le voisin voit que la fille rit"}
+\vspace{1cm}
+
+\begin{forest}
+  [S
+    [GN
+      [{GN\textsubscript{m}}
+        [{Dét\textsubscript{m}} [le]]
+        [{N\textsubscript{m}} [voisin]]
+      ]
+    ]
+    [GV
+      [V [voit]]
+      [P'
+        [que]
+        [P
+          [GN
+            [{GN\textsubscript{f}}
+              [{Dét\textsubscript{f}} [la]]
+              [{N\textsubscript{f}} [fille]]
+            ]
+          ]
+          [GV
+            [{V\textsubscript{i}} [rit]]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+
+\end{document}
