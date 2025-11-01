@@ -1,0 +1,182 @@
+\documentclass[french]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{forest}
+
+\begin{document}
+
+\subsection*{Dérivation TAG : « Pierre casse un verre de vin »}
+
+\subsubsection*{1. Arbres élémentaires}
+
+\textbf{1.1. Arbres initiaux}
+\\
+\\
+Soit l’arbre $\alpha_{\text{casse}}$ (structure transitive) :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[S
+  [GN$_{\downarrow}$]
+  [GV
+    [V [casse]]
+    [GN$_{\downarrow}$]
+  ]
+]
+\end{forest}
+
+\medskip
+Soit l’arbre $\alpha_{\text{Pierre}}$ :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[GN [Pierre]]
+\end{forest}
+
+\medskip
+Soit l’arbre $\alpha_{\text{verre}}$ :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[GN [N [verre]]]
+\end{forest}
+
+\medskip
+Soit l’arbre $\alpha_{\text{vin}}$ :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[GN [N [vin]]]
+\end{forest}
+\clearpage
+\textbf{1.2. Arbres auxiliaires}
+
+Soit l’arbre auxiliaire $\beta_{\text{un}}$ :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[GN
+  [Det [un]]
+  [GN$^\ast$]
+]
+\end{forest}
+
+\medskip
+Soit l’arbre auxiliaire $\beta_{\text{de}}$ (modifieur optionnel du nom) :
+\par\noindent
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[GN
+  [GN$^\ast$]
+  [GP
+    [P [de]]
+    [GN$_{\downarrow}$]
+  ]
+]
+\end{forest}
+
+\subsection*{Dérivation}
+
+\begin{enumerate}
+  \item Partir de \textbf{$\alpha_{\text{casse}}$}.
+  \item Substituer \textbf{$\alpha_{\text{Pierre}}$} sur le nœud \(\mathrm{GN}_{\downarrow 1}\) (sujet).
+  \item Substituer \textbf{$\alpha_{\text{verre}}$} sur le nœud \(\mathrm{GN}_{\downarrow 2}\) (objet).
+  \item Adjoindre \textbf{$\beta_{\text{un}}$} au \(\mathrm{GN}\) objet.
+  \item Adjoindre \textbf{$\beta_{\text{de}}$} au \(\mathrm{GN}\) interne (\emph{verre}) — modifieur optionnel.
+  \item Substituer \textbf{$\alpha_{\text{vin}}$} sur le nœud \(\mathrm{GN}_{\downarrow 3}\) (complément du nom).
+\end{enumerate}
+
+\subsection*{Dérivation TAG de « Pierre boit un verre de vin »}
+
+On construit \(\alpha_{\text{boit}}\) ayant la même structure transitive :
+\[
+\begin{forest}
+for tree={align=center,l sep=8mm,s sep=6mm,scale=0.92}
+[S
+  [GN$_{\downarrow}$]
+  [GV
+    [V [boit]]
+    [GN$_{\downarrow}$]
+  ]
+]
+\end{forest}
+\]
+
+\medskip
+Arbre \(\alpha_{\text{un-verre-de}}\) :
+\[
+\begin{forest}
+for tree={align=center,l sep=10mm,s sep=8mm, scale=0.92}
+[GN
+  [Det [un]]
+  [N'
+    [N [verre]]
+    [GP
+      [P [de]]
+      [N]
+    ]
+  ]
+]
+\end{forest}
+\]
+
+
+\paragraph{Justification.}
+Si l’on sépare \og un\fg{}, \og verre\fg{}, \og de\fg{}, \og vin\fg{} en arbres élémentaires, c’est plus général
+mais cela laisse la porte ouverte à des dérivations TAG qui s’éloignent de l’interprétation sémantique :
+\(\mathrm{Boire}(\mathrm{Pierre}, \mathrm{vin}(\mathrm{un\mbox{-}verre}))\) peut produire plutôt des lectures
+\(\mathrm{Boire}(\mathrm{Pierre}, \mathrm{un\mbox{-}verre}(\mathrm{vin}))\).
+Aussi, un arbre pour \og un verre de\fg{} semble plus restreindre aux contextes d’usage dans lesquels il s’agit
+d’une mesure/quantité.
+
+\medskip
+Soit \(\alpha_{\text{vin}}\) :
+\[
+\begin{forest}
+for tree={align=center, l sep=8mm, s sep=6mm, scale=0.92}
+[N
+  [vin]
+]
+\end{forest}
+\]
+
+\paragraph{Dérivation :}
+\begin{itemize}
+  \item Substituer \(\alpha_{\text{Pierre}}\) sur \(GN_{\text{agent}}\) de \(\alpha_{\text{boit}}\).
+  \item Substituer \(\alpha_{\text{vin}}\) au \(N\) de \(\alpha_{\text{un-verre-de}}\).
+  \item Substituer l’arbre résultant à \(GN_{\text{patient}}\) de \(\alpha_{\text{boit}}\).
+\end{itemize}
+
+\begin{center}
+\begin{forest}
+for tree={
+  align=center,
+  l sep=10mm,
+  s sep=8mm,
+  scale=0.92
+}
+[S
+  [GN
+    [Pierre]
+  ]
+  [GV
+    [V [boit]]
+    [GN
+      [Det [un]]
+      [N'
+        [N [verre]]
+        [GP
+          [P [de]]
+          [N [vin]]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+\end{center}
+
+\end{document}
